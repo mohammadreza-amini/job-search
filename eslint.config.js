@@ -26,7 +26,8 @@ export default defineConfig([
     extends: [
       "plugin: vue/vue3-recommended",
       "eslint:recommended",
-      "@vue/eslint-config-prettier"
+      "@vue/eslint-config-prettier",
+      "plugin:vitest-globals/recomended"
     ],
   },
 
