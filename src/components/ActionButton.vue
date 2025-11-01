@@ -1,11 +1,29 @@
 <template>
-  <button class="primary">{{ text }}</button>
+  <button :class="buttonClass">{{ text }}</button>
 </template>
 
 <script>
+
 export default {
   name: 'ActionButton',
-  props: ['text'],
+  props: {
+    text: { type: String, required: true },
+    type: {
+      type: String,
+      requireed: false,
+      default: 'primary',
+      validator(value) {
+        return ["primary", "secondary"].includes(value);
+      }
+    },
+  },
+  computed: {
+    buttonClass() {
+      return {
+        [this.type]: true,
+      }
+    },
+  },
 }
 </script>
 
@@ -18,7 +36,7 @@ button {
   @apply border-0  text-white bg-brand-blue-1 hover:shadow-blue;
 }
 
-.secondary{
-
+.secondary {
+  @apply bg-transparent text-brand-blue-1 hover:bg-brand-blue-2 hover:text-white;
 }
 </style>
