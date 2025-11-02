@@ -1,9 +1,12 @@
 <template>
-  <div class="w-full h-16 border-b border-solid border-brand-gray-1 bg-white ">
-    <div class="flex h-full items-center px-8"> 
-        this is a subnav
-    </div> 
+  <div class="w-full h-16 border-b border-solid border-brand-gray-1 bg-white">
+    <div class="flex h-full items-center px-8">
+      <div>
+        <font-awesome-icon :icon="['fas', 'search']" class="mr-2" />
+        <span><span class="text-brand-green-1">1653</span> jobs matched</span>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
