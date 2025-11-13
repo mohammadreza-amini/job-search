@@ -9,12 +9,13 @@
         </div>
         <div class="col-span-5 col-start-7 self-center justify-self-center">
           <img
-            class="object-contain rounded-2xl"
-            src="../image/logo.png"
-            style="width: 400px"
+            class="object-cover rounded-full"
+            src="../image/teamwork.jpeg"
             alt="logo"
+            style="width: 450px; height: 450px"
           />
         </div>
+
         <div class="col-span-1 col-start-12"></div>
       </div>
     </section>

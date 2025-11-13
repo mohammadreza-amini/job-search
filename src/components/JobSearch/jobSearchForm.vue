@@ -4,12 +4,7 @@
     <div class="flex flex-1 h-full flex-nowrap text-base font-light">
       <div class="flex h-full flex-1 relative items-center pr-3">
         <label class="absolute left-0 -top-10">Role</label>
-        <input
-          v-model="role"
-          type="text"
-          placeholder="Software Engineer"
-          class="w-full text-lg font-normal focus:outline-none"
-        />
+        <TextInput placeholder="Software Engineer" v-model="role" />
       </div>
 
       <span
@@ -19,12 +14,7 @@
 
       <div class="flex h-full flex-1 relative items-center pl-3">
         <label class="absolute left-3 -top-10">Where?</label>
-        <input
-          v-model="location"
-          type="text"
-          placeholder="Los Angeles"
-          class="w-full text-lg font-normal focus:outline-none"
-        />
+        <TextInput placeholder="Los Angeles" v-model="location" />
       </div>
     </div>
 
@@ -35,10 +25,11 @@
 <script>
 import { icon } from '@fortawesome/fontawesome-svg-core'
 import ActionButton from '../Shared/ActionButton.vue'
+import TextInput from '../Shared/TextInput.vue'
 
 export default {
   name: 'jobSearchForm',
-  components: { ActionButton },
+  components: { ActionButton, TextInput },
   data() {
     return {
       role: '',
