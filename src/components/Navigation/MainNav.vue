@@ -2,12 +2,15 @@
   <header :class="['w-full', 'text-sm', headerHeightClass]">
     <div class="fixed top-0 left-0 w-full h-16 bg-white">
       <div class="flex flex-nowrap h-full border-b border-solid border-brand-gray-1 px-8 mx-auto">
-        <router-link :to="{name: 'Home'}" class="flex h-full items-center text-xl">
-          {{company}} </router-link> 
+        <router-link :to="{ name: 'Home' }" class="flex h-full items-center text-xl">
+          {{ company }}
+        </router-link>
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
-            <li v-for="menuItem in menuItems" :key="menuItem" class="h-full first:ml-0 ml-9">
-              <a href="#" class="flex h-full items-center py-2.5">{{ menuItem }}</a>
+            <li v-for="menuItem in menuItems" :key="menuItem.text" class="h-full first:ml-0 ml-9">
+              <router-link :to="menuItem.url" class="flex h-full items-center py-2.5">
+                {{ menuItem.text }}
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -35,7 +38,14 @@ export default {
   data() {
     return {
       company: 'MR Careers',
-      menuItems: ['Teams', 'Location', 'Life at MR Corp', 'How We Hire', 'Students', 'jobs'],
+      menuItems: [
+        { text: 'Teams', url: '/' },
+        { text: 'Location', url: '/' },
+        { text: 'Life at MR Corp', url: '/' },
+        { text: 'How We Hire', url: '/' },
+        { text: 'Students', url: '/' },
+        { text: 'jobs', url: '/jobs/results' },
+      ],
       isLoggedIn: false,
     }
   },
