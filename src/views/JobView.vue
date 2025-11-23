@@ -1,5 +1,5 @@
 <template>
-  <div>Job Page for job {{ currentJobId }}</div>
+  <div class="p-10">Job Page for job {{ currentJobId }}</div>
 </template>
 
 <script>
