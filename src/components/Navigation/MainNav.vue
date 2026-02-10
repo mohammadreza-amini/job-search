@@ -15,22 +15,22 @@
           </ul>
         </nav>
         <div class="ml-auto flex h-full items-center py-2.5">
-          <profile-image v-if="userStore.isLoggedIn" />
-          <action-button v-else @click="userStore.toggleLogged" text="Sign in" type="primary" />
+          <profile-image v-if="isLoggedIn" />
+          <action-button v-else @click="toggleLogged" text="Sign in" type="primary" />
         </div>
       </div>
-      <the-subnav v-if="userStore.isLoggedIn" />
+      <the-subnav v-if="isLoggedIn" />
     </div>
   </header>
 </template>
 
 <script>
-import { mapStores } from 'pinia';
+import { mapState, mapActions } from 'pinia';
 import { useUserStore } from '@/stores/user';
-
 import ActionButton from '../Shared/ActionButton.vue'
 import ProfileImage from './ProfileImage.vue'
 import TheSubnav from './TheSubnav.vue'
+
 export default {
   name: 'MainNav',
   components: {
@@ -52,13 +52,16 @@ export default {
     }
   },
   computed: {
-    ...mapStores(useUserStore),
+    ...mapState(useUserStore, ["isLoggedIn"]),
     headerHeightClass() {
       return {
-        'h-16': !this.userStore.isLoggedIn,
-        'h-32': this.userStore.isLoggedIn,
+        'h-16': !this.isLoggedIn,
+        'h-32': this.isLoggedIn,
       }
     },
   },
+  methods: {
+        ...mapActions(useUserStore,["toggleLogged"])
+  }
 }
 </script>
