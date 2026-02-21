@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'pinia';
-import { useUserStore } from '@/stores/user';
+import { mapState, mapActions } from 'pinia'
+import { useUserStore } from '@/stores/user'
 import ActionButton from '../Shared/ActionButton.vue'
 import ProfileImage from './ProfileImage.vue'
 import TheSubnav from './TheSubnav.vue'
@@ -42,7 +42,7 @@ export default {
     return {
       company: 'MR Careers',
       menuItems: [
-        { text: 'Teams', url: '/' },
+        { text: 'Teams', url: '/teams' },
         { text: 'Location', url: '/' },
         { text: 'Life at MR Corp', url: '/' },
         { text: 'How We Hire', url: '/' },
@@ -52,7 +52,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useUserStore, ["isLoggedIn"]),
+    ...mapState(useUserStore, ['isLoggedIn']),
     headerHeightClass() {
       return {
         'h-16': !this.isLoggedIn,
@@ -61,7 +61,7 @@ export default {
     },
   },
   methods: {
-        ...mapActions(useUserStore,["toggleLogged"])
-  }
+    ...mapActions(useUserStore, ['toggleLogged']),
+  },
 }
 </script>
